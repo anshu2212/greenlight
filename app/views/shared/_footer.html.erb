@@ -14,7 +14,26 @@
 %>
 
 <footer class="footer pt-3">
-  <p class="text-center mb-1"><%= t("footer.powered_by", href: link_to(t("greenlight"), "https://bigbluebutton.org/2018/07/09/greenlight-2-0/", target: "_blank", rel: "noopener")).html_safe %> <%= Greenlight::Application::VERSION %></p>
+	<div class="row">
+		<div class="col-9 m-auto">
+		  <div class="row">
+		  	<div class="col-12 col-sm-5">
+		  		<a href="privacy">Privacy</a>
+		  		<br>
+		  		<a href="tnc">Terms & Conditons</a>
+		  	</div>
+		  	<div class="col-12 col-sm-5">
+		  		<a href="contact">Contact Us</a>
+		  		<br>
+		  		<a href="tnc">Feedback/Support</a>
+		  	</div>
+		  	<div class="col-12 col-sm-2" >
+		  		<span style="font-style:italic" >Powered by</span><br class="d-none d-sm-block">
+		  		<a href="https://rewoke.in/" target="_blank">Rewoke</a>
+		  	</div>
+		  </div>
+		</div>
+	</div>
 </footer>
 
 <%= render "shared/components/cookie_warning" %>
