@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   include Recorder
   include Rolify
 
+
   before_action :find_user, only: [:edit, :change_password, :delete_account, :update]
   before_action :ensure_unauthenticated_except_twitter, only: [:create]
   before_action :check_user_signup_allowed, only: [:create]
@@ -185,7 +186,10 @@ class UsersController < ApplicationController
     #return redirect_to root_path unless current_user
     # If its the current user
     #if current_user 
-      render :user_home
+    @search, @order_column, @order_direction, recs =
+        all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
+    @pagy, @recordings = pagy_array(recs)
+    render :user_home
     #else
     #  return redirect_to root_path, flash: { alert: I18n.t("room.invalid_provider") } if incorrect_user_domain
     #  show_user_join
