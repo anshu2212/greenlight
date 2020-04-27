@@ -180,6 +180,18 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /u/home
+  def home
+    #return redirect_to root_path unless current_user
+    # If its the current user
+    #if current_user 
+      render :user_home
+    #else
+    #  return redirect_to root_path, flash: { alert: I18n.t("room.invalid_provider") } if incorrect_user_domain
+    #  show_user_join
+    #end
+  end
+
   # GET | POST /terms
   def terms
     redirect_to '/404' unless Rails.configuration.terms

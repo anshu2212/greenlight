@@ -18,7 +18,7 @@
 
 Rails.application.routes.draw do
   get '/health_check', to: 'health_check#all'
-
+  
   # Error routes.
   match '/401', to: 'errors#unauthorized', via: :all, as: :unauthorized
   match '/404', to: 'errors#not_found', via: :all, as: :not_found
@@ -93,7 +93,7 @@ Rails.application.routes.draw do
     get '/:user_uid/delete_account', to: 'users#delete_account', as: :delete_account
     patch '/:user_uid/edit', to: 'users#update', as: :update_user
     delete '/:user_uid', to: 'users#destroy', as: :delete_user
-
+    get '/home', to:'users#home', as: :main_room_new
     # All user recordings
     get '/:user_uid/recordings', to: 'users#recordings', as: :get_user_recordings
   end
