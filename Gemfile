@@ -86,6 +86,8 @@ group :production do
   # Use  for the cache store in production
   gem 'redis'
   gem 'hiredis'
+  gem 'listen', '~> 3.0.5'
+  
 end
 
 # Ruby linting.
@@ -98,6 +100,7 @@ group :development, :test do
   gem 'dotenv-rails'
   # Use a sqlite database in test and development.
   gem 'sqlite3', '~> 1.3.6'
+  gem 'listen', '~> 3.0.5'
 end
 
 group :test do

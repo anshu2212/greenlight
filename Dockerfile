@@ -3,7 +3,7 @@ FROM ruby:2.5.1-alpine AS base
 # Set a variable for the install location.
 ARG RAILS_ROOT=/usr/src/app
 # Set Rails environment.
-ENV RAILS_ENV production
+ENV RAILS_ENV development
 ENV BUNDLE_APP_CONFIG="$RAILS_ROOT/.bundle"
 
 # Make the directory and set as working.
@@ -42,7 +42,7 @@ FROM ruby:2.5.1-alpine
 ARG RAILS_ROOT=/usr/src/app
 ARG PACKAGES="tzdata curl postgresql-client sqlite-libs yarn nodejs bash"
 
-ENV RAILS_ENV=production
+ENV RAILS_ENV=development
 ENV BUNDLE_APP_CONFIG="$RAILS_ROOT/.bundle"
 
 WORKDIR $RAILS_ROOT
@@ -56,6 +56,10 @@ COPY --from=base $RAILS_ROOT $RAILS_ROOT
 
 # Expose port 80.
 EXPOSE 80
+
+# Expose port 80.
+EXPOSE 3000
+
 
 # Sets the footer of greenlight application with current build version
 ARG version_code
