@@ -79,6 +79,16 @@
               <%= f.submit t("signup.title"), class: "btn btn-primary btn-block signin-button" %>
             </div>
           <% end %>
+          Already Registerd ?
+          <% allow_greenlight_accounts = allow_greenlight_accounts? %>
+          <% if allow_greenlight_accounts %>
+            <%= link_to t("login"), signin_path, :class => "" %>
+          <% elsif Rails.configuration.loadbalanced_configuration %>
+            <%= link_to t("login"), omniauth_login_url(:bn_launcher), :class => "" %>
+          <% else %>
+            <%= link_to t("login"), signin_path, :class => "" %>
+          <% end %>
+
         </div>
       </div>
     </div>

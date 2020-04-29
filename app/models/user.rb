@@ -108,6 +108,11 @@ class User < ApplicationRecord
     [main_room] + rooms.where.not(id: main_room.id).order(Arel.sql("last_session IS NULL, last_session desc"))
   end
 
+  # Returns a list of rooms ordered by last session (with nil rooms last)
+  def all_rooms
+    rooms.where.not(id: main_room.id).order(Arel.sql("created_at IS NULL, created_at desc"))+rooms.deleted.where.not(id: main_room.id).order(Arel.sql("created_at IS NULL, created_at desc"))
+  end
+
   # Activates an account and initialize a users main room
   def activate
     update_attributes(email_verified: true, activated_at: Time.zone.now)

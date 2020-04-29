@@ -21,7 +21,7 @@
     </div>
     <div class="row">
       <div class="col-12 col-sm-5 col-lg-4 text-center text-sm-left ml-auto">
-        <a href="" class="btn btn-outline-primary">Create New Meeting</a>
+        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#createRoomModal" >Create New Meeting</a>
       </div>
       <div class="col-12 col-sm-5 col-lg-4 text-center text-sm-right mr-auto">
         <a href="" class="btn btn-outline-primary">Join Meeting</a>
@@ -31,11 +31,39 @@
       <div class="col-12 col-sm-10 col-lg-8 m-auto">
         <div class="row">
           <div class="col">
-            Past Meeting:
+            Meeting:
           </div>
         </div>
-        <%= render "shared/sessions", recordings: @recordings,  pagy: @pagy, only_public: false, user_recordings: true, title: t("recording.all_recordings") %>
+        <div class="row">
+          <div class="col">
+            <div class="row table-heading">
+              <div class="col-1">
+                Index
+              </div>
+              <div class="col">
+                Name
+              </div>
+              <div class="col">
+                Recordings
+              </div>
+              <div class="col">
+                Status
+              </div>
+              <div class="col">
+                Date of Meeting
+              </div>
+              <div class="col-1">
+                Actions
+              </div>
+            </div>
+            <% current_user.all_rooms.each.with_index do |room, index| %>
+              <%= render "rooms/components/room_row", room: room, index:index %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<%#= render "shared/modals/delete_room_modal" %> 
+<%= render "shared/modals/create_room_modal" %>

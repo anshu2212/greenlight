@@ -189,6 +189,7 @@ class UsersController < ApplicationController
     @search, @order_column, @order_direction, recs =
         all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
     @pagy, @recordings = pagy_array(recs)
+    @all_rooms = current_user.ordered_rooms()
     render :user_home
     #else
     #  return redirect_to root_path, flash: { alert: I18n.t("room.invalid_provider") } if incorrect_user_domain
