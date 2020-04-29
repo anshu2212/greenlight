@@ -16,7 +16,7 @@
 <div class="header py-4">
   <div class="container">
     <div class="d-flex">
-      <%= link_to (current_user ? '/u/home' : root_path), class: "header-brand" do %>
+      <%= link_to root_path, class: "header-brand" do %>
         <% begin %>
           <%= image_tag "logo.png" , :class => "logo-image header-brand-img" , :style => "" %>
 
@@ -35,15 +35,13 @@
             <% end %>
           <% else %>
             <% rooms_page = params[:controller] == "rooms" && params[:action] == "show" ? "active" : "" %>
-            <%= link_to "/u/home", class: "px-3 mx-1 mt-1 header-nav #{rooms_page}" do %>
-              <i class="fas fa-home pr-1 "></i><span class="d-none d-sm-inline-block"><%= t("header.dropdown.home") %></span>
-            <% end %>
+            
 
             <% if current_user.highest_priority_role.get_permission("can_create_rooms") %>
               <% all_rec_page = params[:controller] == "users" && params[:action] == "recordings" ? "active" : "" %>
-              <%= link_to get_user_recordings_path(current_user), class: "px-3 mx-1 mt-1 header-nav #{all_rec_page}" do %>
-                <i class="fas fa-video pr-1"></i><span class="d-none d-sm-inline-block"><%= t("header.all_recordings") %></span>
-              <% end %>
+              <%#= link_to get_user_recordings_path(current_user), class: "px-3 mx-1 mt-1 header-nav #{all_rec_page}" do %>
+                <!-- <i class="fas fa-video pr-1"></i><span class="d-none d-sm-inline-block"><%#= t("header.all_recordings") %></span> -->
+              <%# end %>
             <% end %>
           <% end %>
 
@@ -60,6 +58,9 @@
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end">
+              <%= link_to "/u/home", class: "dropdown-item" do %>
+                <i class="dropdown-icon  fas fa-home pr-1 "></i><%= t("header.dropdown.home") %>
+              <% end %>
               <%= link_to edit_user_path(current_user), class: "dropdown-item"  do %>
                 <i class="dropdown-icon fas fa-id-card mr-3"></i><%= t("header.dropdown.settings") %>
               <% end %>

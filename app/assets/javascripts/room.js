@@ -26,9 +26,44 @@ $(document).on('turbolinks:load', function(){
     // Handle copy button.
     copy.on('click', function(){
       var inviteURL = $('#invite-url');
+      inviteURLtext = inviteURL.val(); 
+      
+      var inviteKey = $('#invite-paskey');
+      if(inviteKey.length>0){
+        inviteKeytext = inviteKey.val(); 
+      }else{
+        inviteKeytext = "";
+      }
+
+      var inviteId = $('#invite-id').val();
+      var inviteRoomName = $('#invite-roomname').val();
+      var inviteRoomHost = $('#invite-roomowner').val();
+
+      if(jQuery('#room-id-data').length==0){
+        jQuery('body').append("<textarea id='room-id-data' class='d-none' ></textarea>");
+      }
+      var textNode = jQuery('#room-id-data').removeClass('d-none');
+
+      textNode.val(
+        "\nHi, \nI want to invite you to join meeting for \""+
+        inviteRoomName+
+        "\". please paste the following url: \n"+
+        inviteURLtext + 
+        " \nin a browser.\n\nOr join meeting at https://"+
+        window.location.host+
+        "/ with following credentials \n\tMeetingID: "+
+        inviteId+(""!==inviteKeytext?(" \n\tKey:" + inviteKeytext):"")
+        );
+
+      textNode.select();
+      
+      var success = document.execCommand("copy");
+
+      var textNode = jQuery('#room-id-data').addClass('d-none');
+
+
       inviteURL.select();
 
-      var success = document.execCommand("copy");
       if (success) {
         inviteURL.blur();
         copy.addClass('btn-success');
@@ -264,4 +299,44 @@ function removeSharedUser(target) {
     parentLI.removeChild(target)
     parentLI.classList.add("remove-shared")
   }
+}
+function toggleAdvanceMeetingSettings(e){
+  e && e.preventDefault();
+  var target = e?jQuery(e.target):jQuery('.meeting-advance-settings-control');
+  if(jQuery(target).find('i.fa-plus').hasClass('d-none')){
+    jQuery('.meeting-advance-settings-control i.fa-plus').removeClass('d-none');
+    jQuery('.meeting-advance-settings-control i.fa-minus').addClass('d-none');
+    jQuery('.meeting-advance-settings').addClass('d-none');
+  }else{
+    jQuery('.meeting-advance-settings-control i.fa-plus').addClass('d-none');
+    jQuery('.meeting-advance-settings-control i.fa-minus').removeClass('d-none');
+    jQuery('.meeting-advance-settings').removeClass('d-none');
+  }
+}
+function openRoomRecordingModal(e,roomUid){
+  e && e.preventDefault();
+  console.log(roomUid);
+  jQuery('#listRoomRecordingModal .modal-body iframe').attr("src" ,"/"+roomUid+"/recordings");
+  jQuery('#listRoomRecordingModal').modal();
+}
+
+function openJoinPage(e){
+  e && e.preventDefault();
+  console.log(e.target);
+  var meetingId = jQuery(e.target).find('input[name="meeting-id"]').val();
+  if(meetingId !=="" ){
+    window.location = ("//"+window.location.host+"/"+meetingId);
+    console.log("//"+window.location.host+"/"+meetingId);
+  }
+}
+
+function closemeeting(e,roomid){
+  e && e.preventDefault();
+  jQuery.ajax({
+    url: "/"+roomid,
+    type: 'DELETE',
+    success:function(data){
+      console.log(data);
+    }
+  });
 }

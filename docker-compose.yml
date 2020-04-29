@@ -18,6 +18,7 @@ services:
 #        tag: $LOG_TAG
     volumes:
       - ./bin:/usr/src/app/bin
+      - ./config:/usr/src/app/config
       - ./app:/usr/src/app/app
       - ./log:/usr/src/app/log
       - ./db:/usr/src/app/db
