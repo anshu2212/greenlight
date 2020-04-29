@@ -13,14 +13,14 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
-<div class="container">
-  <div class="row pt-7">
-    <div class="col col-lg-6 offset-lg-3">
-      <div class="card">
-        <div class="card-header background">
+<div class="container sign-up pb-8">
+  <div class="row no-gutters" style="min-height: 80vh;">
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-12 m-auto">
+      <div class="white-box">
+        <div class="">
           <h4 class="mt-2"><%= t("signup.subtitle") %></h4>
         </div>
-        <div class="card-body background">
+        <div class="">
           <% unless iconset_providers.length.zero? %>
             <% iconset_providers.each do |provider| %>
               <%= link_to omniauth_login_url(provider), class: "customBtn-#{provider} oauth-signin" do %>
@@ -69,24 +69,25 @@
                 <div class="invalid-feedback d-block"><%= @user.errors.full_messages_for(:accepted_terms).first %></div>
               </div>
             <% end %>
-            <div class="card-footer px-0 pb-0">
+            <div class="card-footer px-0">
               <% if recaptcha_enabled? %>
                 <div class="form-group">
                   <%= recaptcha_tags %>
                   <div class="invalid-feedback d-block"><%= @user.errors.full_messages_for(:base).first %></div>
                 </div>
               <% end %>
-              <%= f.submit t("signup.title"), class: "btn btn-primary btn-block signin-button" %>
+              <%= f.submit t("signup.title"), class: "btn btn-custom-primary btn-block signin-button" %>
             </div>
           <% end %>
-          Already Registerd ?
+
+          Already Registerd? 
           <% allow_greenlight_accounts = allow_greenlight_accounts? %>
           <% if allow_greenlight_accounts %>
-            <%= link_to t("login"), signin_path, :class => "" %>
+            <%= link_to t("login"), signin_path, :class => " text-custom-primary" %>
           <% elsif Rails.configuration.loadbalanced_configuration %>
-            <%= link_to t("login"), omniauth_login_url(:bn_launcher), :class => "" %>
+            <%= link_to t("login"), omniauth_login_url(:bn_launcher), :class => " text-custom-primary" %>
           <% else %>
-            <%= link_to t("login"), signin_path, :class => "" %>
+            <%= link_to t("login"), signin_path, :class => " text-custom-primary" %>
           <% end %>
 
         </div>

@@ -258,6 +258,14 @@ $custom-secondary: #20336B;
   box-shadow: 2px 2px 5px 0px #52baf16b;
 }
 
+
+.white-box{
+  padding: 40px;
+  background: white;
+  box-shadow: 2px 8px 30px 0 #ccc;
+  border-radius: 16px;    
+}
+
 //OVER-RIDE
 
 //Header
@@ -327,7 +335,21 @@ $custom-secondary: #20336B;
 
 //Auth
 
+.sign-in,.sign-up{
+  min-height: 83vh;
 
+  h4{
+    user-select: auto;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 50px;
+  }
+
+  input{height: 50px;}
+  .input-icon-addon{color: $custom-secondary !important;}
+  .btn{height: 50px; font-size: 18px;}
+
+}
 
 
 
