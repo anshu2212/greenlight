@@ -18,7 +18,8 @@
     <div class="d-flex">
       <%= link_to (current_user ? '/u/home' : root_path), class: "header-brand" do %>
         <% begin %>
-          <%= image_tag(logo_image, class: "header-brand-img", alt:"") %>
+          <%= image_tag "logo.png" , :class => "logo-image header-brand-img" , :style => "" %>
+
         <% rescue %>
           <%= t("administrator.site_settings.branding.invalid") %>
         <% end %>
@@ -92,9 +93,17 @@
             </div>
           </div>
         <% else %>
-          <a href="/bussiness" style="color:#999!important;padding:10px">Bussiness</a>
-          <a href="/feature" style="color:#999!important;padding:10px" >Feature</a>
-          <a href="/about" style="color:#999!important;padding:10px">About</a>
+
+
+
+          <div class="row no-gutters" style="width: 160px;user-select: auto;">
+            <div class="col-7 m-auto" style="user-select: auto;font-size: 13px;font-weight: 700;color: #999;padding-right: 10px;text-align: right;">
+              United against COVID - 19
+            </div>
+            <div class="col-5" style="user-select: auto;">
+              <%= image_tag "flag.png" , :class => "flag-image" , :style => "" %>
+            </div>
+          </div>
           <%# allow_greenlight_accounts = allow_greenlight_accounts? %>
           <%# if allow_greenlight_accounts %>
             <%#= link_to t("login"), signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>

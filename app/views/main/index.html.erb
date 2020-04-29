@@ -13,29 +13,109 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
-<div class="background">
-  <div class="container pt-9 pb-8">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 text-center">
-        <p class="lead offset-lg-2 col-lg-8 col-sm-12 " style="font-weight:400;color:#999">They can steal your password or your phone, but never your FACE.. <%#= t("landing.welcome").html_safe %></p>
-        <p class="lead offset-lg-2 col-lg-8 col-sm-12 " style="font-weight:400;color:#999" >World's first conferenceing tool powered by Face ID<%#= t("landing.about", href: link_to(t("greenlight"), "https://bigbluebutton.org/2018/07/09/greenlight-2-0/", target: "_blank", rel: "noopener")).html_safe %></p>
+<div class="background home">
+  <div class="container pt-5 pb-5">
+    <div class="row no-gutters justify-content-around section-1">
+
+      <div class="col-md-4 col-sm-12 text-left m-auto">
+        <h2>India's own virtual meeting app</h2>
         <p>
           <% if current_user %>
           <% else %>
-            <%= link_to "Create new Meeting", signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
+            <%= link_to "Create Meeting", signin_path, :class => "btn btn-custom-primary sign-in-button" %>
             <!-- <a href="" class="btn btn-outline-primary">Create new Meeting</a> -->
           <% end %>
         </p>
         <p>
-          <a href="" class="btn btn-outline-primary">Join Meeting</a>
+          <a href="" class="btn btn-custom-outline-secondary">Join Meeting</a>
         </p>
+      </div>
+
+      <div class="col-md-7 col-sm-12">
+        <%= image_tag "hero.png" , :class => "hero-image" , :style => "" %>
+      </div>
+
+
+
+<!--       <div class="col-md-12 col-sm-12 text-center">
+        <p class="lead offset-lg-2 col-lg-8 col-sm-12 " style="font-weight:400;color:#999">
+          They can steal your password or your phone, but never your FACE.. -->
+          <%#= t("landing.welcome").html_safe %>
+<!--         </p>
+        <img src="../../assets/images/google-logo.png">
+        <p class="lead offset-lg-2 col-lg-8 col-sm-12 " style="font-weight:400;color:#999" >
+          World's first conferenceing tool powered by Face ID -->
+          <%#= t("landing.about", href: link_to(t("greenlight"), "https://bigbluebutton.org/2018/07/09/greenlight-2-0/", target: "_blank", rel: "noopener")).html_safe %>
+        <!-- </p> -->
+
+
         <%#= link_to "https://youtu.be/Hso8yLzkqj8", target: "_blank" do %>
           <!--<h4><%#= t("landing.video") %> <i class="far fa-play-circle ml-1"></i></h4>-->
         <%# end %>
-      </div>
+      <!-- </div> -->
+    </div>
 
+    <div class="row no-gutters justify-content-around section-2 pt-9 pb-8">
+      <div class="col-12">
+        <h2 class="text-center pb-8">Features <div class="dash" style="width: 100px; -webkit-transform: translate(-40px, 30px); transform: translate(-55px, 50px);"></div></h2>
+
+        <div class="row justify-content-around">
+          <div class="col-md-3 col-sm-4">
+            <%= image_tag "communications.png" , :class => "icon" , :style => "" %>
+            <h5>Video & Audio</h5>
+            <p>Host one on one or meetings and connect via only audio or both.</p>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <%= image_tag "comment.png" , :class => "icon" , :style => "" %>
+            <h5>Public Chat</h5>
+            <p>Share insights, discuss or shoot questions via a public chat</p>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <%= image_tag "share-1.png" , :class => "icon" , :style => "" %>
+            <h5>Screen Share</h5>
+            <p>Description</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-around">
+          <div class="col-md-3 col-sm-4">
+            <%= image_tag "microphone-1.png" , :class => "icon" , :style => "" %>
+            <h5>Record Meeting</h5>
+            <p>Description</p>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <%= image_tag "document.png" , :class => "icon" , :style => "" %>
+            <h5>Shared Notes</h5>
+            <p>Description</p>
+          </div>
+          <div class="col-md-3 col-sm-4">
+            <%= image_tag "lock-1.png" , :class => "icon" , :style => "" %>
+            <h5>Open or Closed Meeting</h5>
+            <p>Description</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+    <div class="row no-gutters section-3">
+      <div class="col-12 text-center">
+        <div class="text-right">
+          <%= image_tag "mandala-h-1.png" , :class => "mandala" , :style => "height: 200px; margin-right: 30px;" %>
+        </div>
+        <h2 class="pt-9 pb-9">
+          Work from home and connect with loved ones,<br> just start with a simple <span class="text-custom-primary">HELLO!</span><br>
+          We are in this together <span class="text-custom-secondary">INDIA...</span><br>
+        </h2>
+      </div>
     </div>
   </div>
+
+  <div class="bottom">
+    <div class="monument"></div>
+
+  </div>
+
+
 </div>
 
 <%#= render "main/components/features" %>

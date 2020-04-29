@@ -29,8 +29,13 @@
  *
  *= require_self
  */
+@import "utilities/variables";
+
 
 @import "tabler/variables";
+
+
+
 @import "bootstrap";
 @import "jquery-ui/sortable";
 @import "tabler-custom";
@@ -39,7 +44,7 @@
 @import "monolith.min.scss";
 @import "bootstrap-select.min";
 
-@import "utilities/variables";
+
 @import "admins";
 @import "main";
 @import "rooms";
@@ -181,3 +186,150 @@ table {
 #delete-confirm:disabled {
   cursor: not-allowed;
 }
+
+//CUSTOM VARIABLE
+$custom-primary: #52BAF1;
+$custom-secondary: #20336B;
+
+
+
+//CUSTOM UTILITIES
+
+.text-custom-primary{color: $custom-primary !important;}
+.text-custom-secondary{color: $custom-secondary !important;}
+
+
+.btn-custom-primary{
+  background-color: $custom-primary !important;
+  border-color: $custom-primary !important;
+  color: white !important;
+
+  &:hover{
+    background-color: darken($custom-primary, 10%) !important;
+    border-color: darken($custom-primary, 10%) !important;
+    color: white !important;    
+  }
+}
+
+.btn-custom-outline-primary{
+  background-color: $white !important;
+  border-color: $custom-primary !important;
+  color: $custom-primary !important;
+
+  &:hover{
+    background-color: $custom-primary !important;
+    border-color: $custom-primary !important;
+    color: white !important;    
+  }
+}
+
+.btn-custom-secondary{
+  background-color: $custom-secondary !important;
+  border-color: $custom-secondary !important;
+  color: white !important;
+
+  &:hover{
+    background-color: darken($custom-secondary, 10%) !important;
+    border-color: darken($custom-secondary, 10%) !important;
+    color: white !important;    
+  }
+}
+
+.btn-custom-outline-secondary{
+  background-color: $white !important;
+  border-color: $custom-secondary !important;
+  color: $custom-secondary !important;
+
+  &:hover{
+    background-color: $custom-secondary !important;
+    border-color: $custom-secondary !important;
+    color: white !important;    
+  }
+}
+
+
+
+.dash{
+  height: 5px;
+  background: $custom-primary;
+  display: inline-block;
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 0px #52baf16b;
+}
+
+//OVER-RIDE
+
+//Header
+.header{
+  border-bottom: none;
+
+  .header-brand-img{
+    height: 3rem;
+  }
+}
+
+.footer{
+  background: $white;
+  height: auto !important;
+  padding: 10px;
+  color: $gray-700;
+  border-top: none !important;
+}
+
+//Home
+.home{
+  background: $white;
+  min-height: 100vh;
+
+  .section-1{
+    min-height: 85vh;
+
+    h2{
+      color: #333;
+      font-size: 45px;
+      line-height: 1.2;
+    }
+
+    .btn{
+      width: 80%;
+      padding: 8px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  .section-2{
+    background: rgb(246, 251, 254);
+    margin-top: 100px;
+    box-shadow: 2px 2px 10px 1px #ddd;
+    border-radius: 14px;
+
+    h2{ font-size: 40px;}
+    h5{font-weight: 900; color: $gray-900;}
+    p{margin-bottom: 55px;}
+    .icon{height: 40px; margin-bottom: 20px;}
+  }
+
+  .section-3{
+    h2{color: $gray-900; line-height: 1.5; font-size: 32px;}
+    span{font-weight: 900;}
+  }
+
+  .bottom{
+    .monument{
+      height: 130px;
+      background: #ffffff image-url("monument.png") repeat-x;
+    }    
+  }
+}
+
+
+//Auth
+
+
+
+
+
+
+
