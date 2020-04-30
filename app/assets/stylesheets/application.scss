@@ -57,7 +57,7 @@
 }
 
 html, body {
-  font-family: "Source Sans Pro" !important;
+  font-family: "source-sans-pro" !important;
   position: relative;
   width: 100%;
   height: 100%;
@@ -466,8 +466,3 @@ $custom-secondary: #20336B;
   .meeting-advance-settings{ label {height: auto; margin: none;}}
   .custom-switch-input:checked{background-color: $custom-secondary; background: $custom-secondary; border-color: $custom-secondary;}
 }
-
-
-*{font-family: source-sans-pro !important;}
-
-
