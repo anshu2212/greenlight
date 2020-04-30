@@ -15,33 +15,55 @@
 
 <div id="room-block" data-path="<%= update_settings_path(room) %>" data-room-access-code="<%= room.access_code %>">
   <div class="row no-gutters">
-    <div class="col-1">
+
+    <div class="col-1  d-none d-sm-inline">
       <%= index+1 %>
     </div>
-    <div class="col-4">
+
+    <div class="col-8 col-sm-4 ">
       <% if room.deleted == false %>
         <%= link_to room.name,"/"+room.uid %>
       <% else %>
         <%= room.name %>
       <% end %>
+
+      <div class="d-block d-sm-none">
+        <i>
+          Status:
+          <% if room.deleted == false %>
+          Active
+          <% else %>
+          Complete
+          <% end %>
+        </i>
+        <br>
+        <span class="" style="font-size: 12px;">
+          <%= room.created_at %> 
+        </span>
+      </div>
     </div>
-    <div class="col-2">
-      <% if room.sessions > 0 %>
-        <a href="#" onclick="openRoomRecordingModal(event,'<%= room.uid %>')" >View Recordings</a>
-      <% else %>
-        <i><%= "No Recordings" %></i>
-      <% end %>
-    </div>
-    <div class="col-2">
+
+    <div class="col-2  d-none d-sm-inline">
       <% if room.deleted == false %>
         Active
       <% else %>
         Complete
       <% end %>
     </div>
-    <div class="col-2">
+
+    <div class="col-2  d-none d-sm-inline">
       <%= room.created_at %> 
     </div>
+
+    <div class="col-sm-2 col-3">
+      <% if room.sessions > 0 %>
+        <a href="#" onclick="openRoomRecordingModal(event,'<%= room.uid %>')" >View Recordings</a>
+      <% else %>
+        <i><%= "No Recordings" %></i>
+      <% end %>
+    </div>
+
+
     <div class="col-1 text-right">
       <% unless (room.deleted == true) %>
         <div class="item-action dropdown" data-display="static">

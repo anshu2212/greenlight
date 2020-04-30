@@ -17,7 +17,7 @@
   <div class="container pt-5 pb-5">
     <div class="row no-gutters justify-content-around section-1">
 
-      <div class="col-md-4 col-sm-12 text-left m-auto">
+      <div class="col-lg-4 col-sm-12 text-center text-lg-left m-auto p-8 p-lg-0">
         <h2>India's own virtual meeting app</h2>
         <p>
           <% if current_user %>
@@ -33,7 +33,7 @@
         </p>
       </div>
 
-      <div class="col-md-7 col-sm-12">
+      <div class="col-lg-7 col-sm-12 m-auto">
         <%= image_tag "hero.png" , :class => "hero-image" , :style => "" %>
       </div>
 
@@ -61,39 +61,39 @@
       <div class="col-12">
         <h2 class="text-center pb-8">Features <div class="dash" style="width: 100px; -webkit-transform: translate(-40px, 30px); transform: translate(-55px, 50px);"></div></h2>
 
-        <div class="row justify-content-around">
-          <div class="col-md-3 col-sm-4">
+        <div class="row justify-content-around" style="padding: 0 40px;">
+          <div class="col-md-4 col-6 feature text-md-left text-center">
             <%= image_tag "communications.png" , :class => "icon" , :style => "" %>
             <h5>Video & Audio</h5>
-            <p>Host one on one or meetings and connect via only audio or both.</p>
+            <p class="d-md-block d-none">Host one on one or meetings and connect via only audio or both.</p>
           </div>
-          <div class="col-md-3 col-sm-4">
+          <div class="col-md-4 col-6 feature text-md-left text-center">
             <%= image_tag "comment.png" , :class => "icon" , :style => "" %>
             <h5>Public Chat</h5>
-            <p>Share insights, discuss or shoot questions via a public chat</p>
+            <p class="d-md-block d-none">Share insights, discuss or shoot questions via a public chat</p>
           </div>
-          <div class="col-md-3 col-sm-4">
+          <div class="col-md-4 col-6 feature text-md-left text-center">
             <%= image_tag "share-1.png" , :class => "icon" , :style => "" %>
             <h5>Screen Share</h5>
-            <p>Description</p>
+            <p class="d-md-block d-none">Description</p>
           </div>
-        </div>
 
-        <div class="row justify-content-around">
-          <div class="col-md-3 col-sm-4">
+
+
+          <div class="col-md-4 col-6  feature text-md-left text-center">
             <%= image_tag "microphone-1.png" , :class => "icon" , :style => "" %>
             <h5>Record Meeting</h5>
-            <p>Description</p>
+            <p class="d-md-block d-none">Description</p>
           </div>
-          <div class="col-md-3 col-sm-4">
+          <div class="col-md-4 col-6  feature text-md-left text-center">
             <%= image_tag "document.png" , :class => "icon" , :style => "" %>
             <h5>Shared Notes</h5>
-            <p>Description</p>
+            <p class="d-md-block d-none">Description</p>
           </div>
-          <div class="col-md-3 col-sm-4">
+          <div class="col-md-4 col-6  feature text-md-left text-center">
             <%= image_tag "lock-1.png" , :class => "icon" , :style => "" %>
             <h5>Open or Closed Meeting</h5>
-            <p>Description</p>
+            <p class="d-md-block d-none">Description</p>
           </div>          
         </div>
       </div>

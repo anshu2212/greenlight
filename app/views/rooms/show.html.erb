@@ -32,14 +32,15 @@
       <div class="col-xl-8 col-lg-10 col-md-12 white-box">
         <div class="row no-gutters">
 
-          <div class="col-7 left">
+          <div class="col-lg-7 col-12 left">
             <div id="room-title" class="display-3 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
                 <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400"><%= @room.name %></h1>
             </div>
             <% unless exceeds_limit %>
               <label class="form-label" style="margin: 0ps;"><%= t("room.invite_participants") %></label>
+
               <div class="row">
-                <div class="col-12">
+                <div class="col-12 col-sm col-lg-12">
                   <div class="input-icon invite-link-input">
                     <span class="input-icon-addon">
                       <i class="fas fa-link"></i>
@@ -58,9 +59,10 @@
                     </div>
                   <% end %>
                 </div>
-                <div class="col-12">
+
+                <div class="col-12 col-sm-4 col-lg-12">
                   <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10">
+                    <div class="col-xl-4 col-lg-6 col-md-12">
                       <a id="copy" class="btn btn-custom-secondary btn-block mt-2">
                         <i class="fas fa-copy"></i>
                         <%= t("copy") %>

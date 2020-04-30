@@ -272,6 +272,23 @@ $custom-secondary: #20336B;
 
 //OVER-RIDE
 
+.container{
+  @include media-breakpoint-only(lg){
+    // padding: 0 20px;
+    max-width: 90% !important;
+  }  
+  @include media-breakpoint-down(md){
+    padding: 0 20px;
+    max-width: 100% !important;
+  }
+
+
+}
+
+//Mixins
+
+
+
 //Header
 .header{
   border-bottom: none;
@@ -319,8 +336,12 @@ $custom-secondary: #20336B;
 
     h2{ font-size: 40px;}
     h5{font-weight: 900; color: $gray-900;}
-    p{margin-bottom: 55px;}
+    p{}
     .icon{height: 40px; margin-bottom: 20px;}
+    .feature{
+      padding: 0 4% 0px 8%; margin-bottom: 55px;
+      @include media-breakpoint-down(sm){padding: 0 2% 0 4%;}
+    }
   }
 
   .section-3{
@@ -339,7 +360,7 @@ $custom-secondary: #20336B;
 //User Home or Dashboard
 .user-home{
   min-height: 100vh;
-  h1{transform: translateY(40px);}
+  h1{transform: translateY(40px);     position: relative; z-index: 10;}
   .btn{height: 50px; font-size: 18px; min-width: 100%;}  
   .mandala{    position: absolute; top: 0; right: 0; height: 300px;}
   .btn-box{padding: 50px; margin-top: 120px;}
@@ -359,6 +380,18 @@ $custom-secondary: #20336B;
       border-bottom: 1px solid #ccc;
     }
   }
+
+
+  @include media-breakpoint-down(sm){
+    .row-list{margin: 0 -20px !important;}
+    .list-box{border-radius: 0px;}
+  }
+
+  @include media-breakpoint-down(xs){
+
+
+  } 
+
 }
 
 //Rooms
@@ -384,6 +417,13 @@ $custom-secondary: #20336B;
     .avatar{background-color: $custom-primary; background: $custom-primary; color: $white;}
 
     .btn-primary{@extend .btn-custom-primary}
+
+    @include media-breakpoint-down(xs){
+      min-height: 400px;
+      .enter-password,.enter-name{width: 100%; margin-bottom: 20px;}
+      .input-group-append{width: 100%; height: 50px;}
+
+    }
   }
 }
 
