@@ -35,14 +35,14 @@
     <%= f.label t("settings.account.provider"), class: "form-label d-none" %>
     <%= f.text_field :provider, class: "form-control d-none", readonly: "" %>
     <br>
-    <%= f.label t("settings.account.language"), class: "form-label" %>
-    <%= f.select :language, language_options, {}, { class: "form-control custom-select" } %>
+    <%= f.label t("settings.account.language"), class: "form-label d-none" %>
+    <%= f.select :language, language_options, {}, { class: "form-control custom-select d-none" } %>
 
     <% current_user_role = current_user.highest_priority_role %>
     <br>
     <br>
-    <%= f.label t("settings.account.roles"), class: "form-label" %>
-    <div id="role-tag-container" class="tags mb-1">
+    <%= f.label t("settings.account.roles"), class: "form-label d-none" %>
+    <div id="role-tag-container" class="tags mb-1 d-none">
       <% @user.roles.by_priority.each do |role| %>
         <span id="<%= "user-role-tag_#{role.id}" %>" style="<%= "background-color: #{role_colour(role)};border-color: #{role_colour(role)};" %>" class="tag user-role-tag">
           <%= translated_role_name(role) %>

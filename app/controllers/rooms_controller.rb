@@ -155,7 +155,7 @@ class RoomsController < ApplicationController
 
   # POST /:room_uid/start
   def start
-    logger.info "Support: #{current_user.email} is starting room #{@room.uid}"
+    logger.info "Support: #{current_user.email} is starting Meeting #{@room.uid}"
 
     # Join the user in and start the meeting.
     opts = default_meeting_options

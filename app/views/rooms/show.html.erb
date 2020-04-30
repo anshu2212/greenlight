@@ -50,7 +50,7 @@
                     <input id="invite-roomname" type="hidden" class="form-control w-100" value="<%= @room.name %>" readonly="">
                     <input id="invite-roomowner" type="hidden" class="form-control w-100" value="<%= @current_user.name %>" readonly="">
                   </div>
-                  <% if @room.access_code %>
+                  <% if @room.access_code && "" != @room.access_code  %>
                     <div class="input-icon invite-link-input">
                       <span class="input-icon-addon">
                         <i class="fas fa-key"></i>
