@@ -195,6 +195,10 @@ $custom-secondary: #20336B;
 
 //CUSTOM UTILITIES
 
+html{
+  font-family: source-sans-pro, sans-serif;
+}
+
 .text-custom-primary{color: $custom-primary !important;}
 .text-custom-secondary{color: $custom-secondary !important;}
 
