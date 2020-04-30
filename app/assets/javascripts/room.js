@@ -324,9 +324,10 @@ function openJoinPage(e){
   e && e.preventDefault();
   console.log(e.target);
   var meetingId = jQuery(e.target).find('input[name="meeting-id"]').val();
+  var relativePath = jQuery(e.target).find('input[name="relative_path"]').val();
   if(meetingId !=="" ){
-    window.location = ("//"+window.location.host+"/"+meetingId);
-    console.log("//"+window.location.host+"/"+meetingId);
+    window.location = ("//"+window.location.host+relativePath+meetingId);
+    console.log("//"+window.location.host+relativePath+meetingId);
   }
 }
 

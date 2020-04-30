@@ -24,6 +24,7 @@
           <form action="" onsubmit="openJoinPage(event)" >
             <h5 class="text-left">Meeting ID:</h5>
             <input class="form-control text-center" type="text" name="meeting-id" placeholder="Please enter Meeting ID" />
+            <input class="form-control text-center" type="hidden" value="<%= relative_root %>" name="relative_path" placeholder="Please enter Meeting ID" />
             <input class="btn btn-custom-primary" type="submit" value="Join">
           </form>
         </div>
