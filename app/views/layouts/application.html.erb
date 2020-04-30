@@ -52,7 +52,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Primary color styling -->
-    <%= stylesheet_link_tag themes_primary_path %>
+    <%= stylesheet_link_tag  request.base_url+ ENV["RELATIVE_URL_ROOT"] +"themes/primary.css" %>
 
     <script type="text/javascript">
       // Include the correct translated strings for Javascript
