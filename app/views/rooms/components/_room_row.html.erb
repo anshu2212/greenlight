@@ -14,32 +14,32 @@
 %>
 
 <div id="room-block" data-path="<%= update_settings_path(room) %>" data-room-access-code="<%= room.access_code %>">
-  <div class="row">
+  <div class="row no-gutters">
     <div class="col-1">
       <%= index+1 %>
     </div>
-    <div class="col">
+    <div class="col-4">
       <% if room.deleted == false %>
         <%= link_to room.name,"/"+room.uid %>
       <% else %>
         <%= room.name %>
       <% end %>
     </div>
-    <div class="col">
+    <div class="col-2">
       <% if room.sessions > 0 %>
         <a href="#" onclick="openRoomRecordingModal(event,'<%= room.uid %>')" >View Recordings</a>
       <% else %>
         <i><%= "No Recordings" %></i>
       <% end %>
     </div>
-    <div class="col">
+    <div class="col-2">
       <% if room.deleted == false %>
         Active
       <% else %>
         Complete
       <% end %>
     </div>
-    <div class="col">
+    <div class="col-2">
       <%= room.created_at %> 
     </div>
     <div class="col-1 text-right">

@@ -266,6 +266,10 @@ $custom-secondary: #20336B;
   border-radius: 16px;    
 }
 
+.dropdown-icon{color: $custom-secondary;}
+.dropdown-menu{border: none; box-shadow: 1px 1px 5px 0 #ccc;}
+.avatar{background-color: $custom-primary; color: $white;}
+
 //OVER-RIDE
 
 //Header
@@ -332,6 +336,56 @@ $custom-secondary: #20336B;
   }
 }
 
+//User Home or Dashboard
+.user-home{
+  min-height: 100vh;
+  h1{transform: translateY(40px);}
+  .btn{height: 50px; font-size: 18px; min-width: 100%;}  
+  .mandala{    position: absolute; top: 0; right: 0; height: 300px;}
+  .btn-box{padding: 50px; margin-top: 120px;}
+
+  .list-box{
+    min-height: 200px;
+    padding: 0px; 
+
+    .list-heading h5{margin:0; padding: 15px 20px;font-size: 14px; letter-spacing: 1px; text-transform: uppercase;}
+    .list-title{
+      background: $custom-secondary; text-transform: uppercase; font-weight: 700;
+      letter-spacing: 0.5px; padding: 5px 20px; color: $white; font-size: 12px;
+    }
+
+    #room-block{
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+
+//Rooms
+.room{
+  min-height: 83vh;
+
+  .margin{padding-top: 150px;}
+
+  .mandala{position: absolute; height: 300px; top: -125px; right: 50px;}
+
+  .white-box{
+    padding: 40px;
+
+    .left{}
+
+    .input-icon-addon{color: $custom-secondary !important;}
+    input{height: 50px; font-size: 18px !important;}
+    #invite-url,#invite-id,#invite-paskey{
+      background-color: white; border: none; height: 2.375rem; font-size: 0.9375rem !important;
+      &:focus{    box-shadow: none !important; border-color: #ffffff !important;}
+    }
+
+    .avatar{background-color: $custom-primary; background: $custom-primary; color: $white;}
+
+    .btn-primary{@extend .btn-custom-primary}
+  }
+}
 
 //Auth
 
@@ -352,6 +406,24 @@ $custom-secondary: #20336B;
 }
 
 
+//Modals
 
+.modal{
+  .card-title{color: $gray-900; font-size: 22px;}
+  input,label{height: 50px; font-size: 16px;}
+  label{padding-top: 10px;  margin-bottom: 10px;}
+  .input-icon-addon{color: $custom-secondary !important;}
+  .btn{height: 50px; font-size: 18px; margin-top: 30px; min-width: 100%;}
+
+  .protected-meeting{ color: $custom-primary; margin: 20px 0 0;}
+
+  .meeting-advance-settings-control{
+    margin-top: 20px;
+    color: $custom-secondary;
+    .fa{margin-right: 7px;}
+  }
+  .meeting-advance-settings{ label {height: auto; margin: none;}}
+  .custom-switch-input:checked{background-color: $custom-secondary; background: $custom-secondary; border-color: $custom-secondary;}
+}
 
 

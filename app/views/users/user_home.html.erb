@@ -12,47 +12,52 @@
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
-<div class="background pb-1">
+<div class="background pb-1 user-home">
   <div class="container">
-    <div class="row pt-7 pt-sm-9">
+
+    <div class="row no-gutters pt-7">
       <div class="col-lg-8 col-sm-12 m-auto">
-        <h1 class="m-auto text-center">Welcome <%= current_user.name %></h1>
+        <h1 class="m-auto text-center">Welcome, <%= current_user.name %></h1>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-sm-5 col-lg-4 text-center text-sm-left ml-auto">
-        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#createMeetingModal" >Create New Meeting</a>
+
+    <div class="row no-gutters justify-content-center pb-9">
+      <div class="col-lg-9 col-md-12 text-right image">
+        <%= image_tag "mandala-1.png" , :class => "mandala" , :style => "" %>
       </div>
-      <div class="col-12 col-sm-5 col-lg-4 text-center text-sm-right mr-auto">
-        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#joinMeetingModal" >Join Meeting</a>
-      </div>
-    </div>
-    <div class="row pt-5">
-      <div class="col-12 col-sm-10 col-lg-8 m-auto">
-        <div class="row">
-          <div class="col">
-            Meeting:
-          </div>
+      <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12 btn-box white-box text-center">
+        <div>
+          <a href="" class="btn btn-custom-primary mb-6" data-toggle="modal" data-target="#createMeetingModal" >Create New Meeting</a></div>
+        <div>
+          <a href="" class="btn btn-custom-secondary" data-toggle="modal" data-target="#joinMeetingModal" >Join Meeting</a>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="row table-heading">
+      </div>
+    </div>
+
+    <div class="row pt-6 pb-8 no-gutters">
+      <div class="col-12 col-sm-10 m-auto white-box list-box">
+        <div class="row no-gutters">
+          <div class="col-12 list-heading">
+            <h5>Past Meetings</h5>
+          </div>
+          <div class="col-12 ">
+            <div class="row no-gutters table-heading list-title">
               <div class="col-1">
-                Index
+                #
               </div>
-              <div class="col">
-                Name
+              <div class="col-4">
+                Meeting Name
               </div>
-              <div class="col">
+              <div class="col-2">
                 Recordings
               </div>
-              <div class="col">
+              <div class="col-2">
                 Status
               </div>
-              <div class="col">
+              <div class="col-2">
                 Date of Meeting
               </div>
-              <div class="col-1">
+              <div class="col-1 text-right">
                 Actions
               </div>
             </div>

@@ -23,7 +23,7 @@
         <%= f.text_field :access_code,
               required: true,
               class: "form-control join-form",
-              placeholder: t("room.enter_the_access_code"),
+              placeholder: t("room.enter_the_password"),
               value: "" ,
               autofocus: true %>
         <%= f.submit t("room.login"), class: "btn btn-primary btn-sm col-sm-3 form-control join-form" %>
@@ -44,7 +44,7 @@
             autofocus: true
             %>
         <span class="input-group-append">
-          <button type="submit" class="btn btn-primary btn-sm px-7 form-control join-form">
+          <button type="submit" class="btn btn-custom-primary btn-sm px-7 form-control join-form">
             <%= (!@room_running && @anyone_can_start) ? t("room.start") : t("room.join") %>
           </button>
         </span>
