@@ -49,7 +49,7 @@
 @import "main";
 @import "rooms";
 @import "sessions";
-@import "utilities/fonts";
+// @import "utilities/fonts";
 @import "users";
 
 * {
@@ -195,9 +195,6 @@ $custom-secondary: #20336B;
 
 //CUSTOM UTILITIES
 
-html{
-  font-family: source-sans-pro, sans-serif;
-}
 
 .text-custom-primary{color: $custom-primary !important;}
 .text-custom-secondary{color: $custom-secondary !important;}
@@ -469,5 +466,8 @@ html{
   .meeting-advance-settings{ label {height: auto; margin: none;}}
   .custom-switch-input:checked{background-color: $custom-secondary; background: $custom-secondary; border-color: $custom-secondary;}
 }
+
+
+*{font-family: source-sans-pro !important;}
 
 
