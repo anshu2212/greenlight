@@ -83,11 +83,11 @@
           Already Registerd? 
           <% allow_greenlight_accounts = allow_greenlight_accounts? %>
           <% if allow_greenlight_accounts %>
-            <%= link_to t("login"), signin_path, :class => " text-custom-primary" %>
+            <%= link_to t("login"), signin_path, :class => " text-custom-primary  text-capitalize" %>
           <% elsif Rails.configuration.loadbalanced_configuration %>
             <%= link_to t("login"), omniauth_login_url(:bn_launcher), :class => " text-custom-primary" %>
           <% else %>
-            <%= link_to t("login"), signin_path, :class => " text-custom-primary" %>
+            <%= link_to t("login"), signin_path, :class => " text-custom-primary  text-capitalize" %>
           <% end %>
 
         </div>

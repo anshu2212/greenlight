@@ -31,6 +31,9 @@
         <p>
           <a href="" data-toggle="modal" data-target="#joinMeetingModal" class="btn btn-custom-outline-secondary">Join Meeting</a>
         </p>
+        <p style="letter-spacing: 0.5px; font-weight: 500;">
+          New to Hello India?  <%= link_to t("signup.title"), signup_path, :class => "text-custom-primary text-capitalize" %>
+        </p>
       </div>
 
       <div class="col-lg-7 col-sm-12 m-auto">
@@ -65,17 +68,17 @@
           <div class="col-md-4 col-6 feature text-md-left text-center">
             <%= image_tag "communications.png" , :class => "icon" , :style => "" %>
             <h5>Video & Audio</h5>
-            <p class="d-md-block d-none">Host one on one or meetings and connect via only audio or both.</p>
+            <p class="d-md-block d-none">Host one to one or group meetings with crystal clear audio and HD video</p>
           </div>
           <div class="col-md-4 col-6 feature text-md-left text-center">
             <%= image_tag "comment.png" , :class => "icon" , :style => "" %>
             <h5>Public Chat</h5>
-            <p class="d-md-block d-none">Share insights, discuss or shoot questions via a public chat</p>
+            <p class="d-md-block d-none">Share insights, shoot questions and have discussions via public chat</p>
           </div>
           <div class="col-md-4 col-6 feature text-md-left text-center">
             <%= image_tag "share-1.png" , :class => "icon" , :style => "" %>
             <h5>Screen Share</h5>
-            <p class="d-md-block d-none">Description</p>
+            <p class="d-md-block d-none">Easily share your screen during a meeting for more productivity</p>
           </div>
 
 
@@ -83,17 +86,17 @@
           <div class="col-md-4 col-6  feature text-md-left text-center">
             <%= image_tag "microphone-1.png" , :class => "icon" , :style => "" %>
             <h5>Record Meeting</h5>
-            <p class="d-md-block d-none">Description</p>
+            <p class="d-md-block d-none">Select and view any of your recorded meetings</p>
           </div>
           <div class="col-md-4 col-6  feature text-md-left text-center">
             <%= image_tag "document.png" , :class => "icon" , :style => "" %>
             <h5>Shared Notes</h5>
-            <p class="d-md-block d-none">Description</p>
+            <p class="d-md-block d-none">Share key points or minutes of meeting, editable by all members</p>
           </div>
           <div class="col-md-4 col-6  feature text-md-left text-center">
             <%= image_tag "lock-1.png" , :class => "icon" , :style => "" %>
             <h5>Open or Closed Meeting</h5>
-            <p class="d-md-block d-none">Description</p>
+            <p class="d-md-block d-none">Conduct webinars or board room meeting, all in a click</p>
           </div>          
         </div>
       </div>
