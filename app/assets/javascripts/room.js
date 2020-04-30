@@ -45,14 +45,14 @@ $(document).on('turbolinks:load', function(){
       var textNode = jQuery('#room-id-data').removeClass('d-none');
 
       textNode.val(
-        "\nHi, \nI want to invite you to join meeting for \""+
-        inviteRoomName+
-        "\". please paste the following url: \n"+
-        inviteURLtext + 
-        " \nin a browser.\n\nOr join meeting at https://"+
-        window.location.host+
-        "/ with following credentials \n\tMeetingID: "+
-        inviteId+(""!==inviteKeytext?(" \n\tKey:" + inviteKeytext):"")
+        "\nHi,\n"+ 
+        "I want to invite you to join meeting - "+inviteRoomName+".\n"+
+        "Join using following url:\n"+
+        inviteURLtext+"\n"+
+        "Or,\n"+
+        "Join meeting at "+window.location.host+" with following credentials:\n"+
+        "MeetingID: "+inviteId+"\n"+
+        (""!==inviteKeytext?("Password: "+inviteKeytext+"\n"):"")
         );
 
       textNode.select();
