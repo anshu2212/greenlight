@@ -21,7 +21,7 @@
         <h2>India's own virtual meeting app</h2>
         <p>
           <% if current_user %>
-            <%= link_to "Create Meeting", env['RELATIVE_URL_ROOT']+"/u/home", :class => "btn btn-custom-primary sign-in-button" %>
+            <%= link_to "Create Meeting", ENV["RELATIVE_URL_ROOT"]+"u/home", :class => "btn btn-custom-primary sign-in-button" %>
             
           <% else %>
             <%= link_to "Create Meeting", signin_path, :class => "btn btn-custom-primary sign-in-button" %>

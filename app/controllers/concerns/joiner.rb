@@ -86,7 +86,7 @@ module Joiner
     invite_msg = I18n.t("invite_message")
     {
       user_is_moderator: false,
-      meeting_logout_url: env['RELATIVE_URL_ROOT'] + "/u/home",
+      meeting_logout_url: ENV["RELATIVE_URL_ROOT"] + "u/home",
       meeting_recorded: true,
       moderator_message: "#{invite_msg}\n\n#{request.base_url + room_path(@room)}",
       host: request.host,
