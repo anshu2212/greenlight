@@ -66,7 +66,9 @@
               </div>
             </div>
             <% current_user.all_rooms.each.with_index do |room, index| %>
-              <%= render "rooms/components/room_row", room: room, index:index %>
+              <%= render "rooms/components/room_row", room: room, index: index %>
+              <%= render "shared/modals/list_room_recording_modal", room: room , recordingsList: @recordingsList[index], index: index  %>
+
             <% end %>
           </div>
         </div>
@@ -76,6 +78,5 @@
 </div>
 <%= render "shared/modals/delete_room_modal" %> 
 <%= render "shared/modals/create_meeting_modal" %>
-<%= render "shared/modals/list_room_recording_modal" %>
 
 <%= render "shared/modals/join_meeting_modal" %>

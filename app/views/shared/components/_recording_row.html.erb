@@ -25,50 +25,20 @@
       </text>
       <a><i id="edit-record" class="fa fa-edit align-top ml-2" data-edit-recordid="<%= recording[:recordID] %>"></i></a>
     </div>
-    <div class="small text-muted">
+    <div class="small text-muted text-left">
       <%= t("recording.recorded_on", date: recording_date(recording[:startTime])) %>
     </div>
   </td>
-  <% if recording_thumbnails? %>
-    <td class="overflow-hidden">
-      <% p = recording[:playbacks].find do |p| p.key?(:preview) end %>
-      <% if p %>
-        <% safe_recording_images(p[:preview][:images][:image]).each do |img| %>
-          <%= image_tag(img[:content].strip, class: "thumbnail px-2") %>
-        <% end %>
-      <% end %>
-    </td>
-  <% end %>
   <td id="recording-length" class="text-left" data-full-length="<%= recording[:playbacks].empty? ? 0 : recording[:playbacks].first[:length]%>">
     <%= recording_length(recording[:playbacks]) %>
-  </td>
-  <td id="recording-users" class="text-left">
-    <%= recording[:participants] || "-" %>
-  </td>
-  <td class="text-left">
-    <div class="dropdown">
-      <% if recording[:metadata][:"gl-listed"] == "true" %>
-        <button class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="dropdown-icon fas fa-globe px-2"></i> <%= t("recording.visibility.public") %></button>
-      <% else %>
-        <button class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="dropdown-icon fas fa-link px-2"></i> <%= t("recording.visibility.unlisted") %></button>
-      <% end %>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= button_to update_recording_path(meetingID: recording[:meetingID], record_id: recording[:recordID], state: "public"), class: "dropdown-item", "data-disable": "" do %>
-          <i class="dropdown-icon fas fa-globe"></i> <%= t("recording.visibility.public") %>
-        <% end %>
-        <%= button_to update_recording_path(meetingID: recording[:meetingID], record_id: recording[:recordID], state: "unlisted"), class: "dropdown-item", "data-disable": "" do %>
-          <i class="dropdown-icon fas fa-link"></i> <%= t("recording.visibility.unlisted") %>
-        <% end %>
-      </div>
-    </div>
   </td>
   <td>
     <% sorted_formats = recording[:playbacks].sort_by! { |p| p[:type] } %>
     <% sorted_formats.each do |p| %>
-      <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
+      <%= link_to "Show", p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
     <% end %>
   </td>
-  <td class="text-center">
+  <td class="text-center d-none">
     <div class="item-action dropdown">
       <a href="javascript:void(0)" data-toggle="dropdown" class="icon">
         <i class="fas fa-ellipsis-v px-4"></i>

@@ -22,7 +22,7 @@
 
     <div class="col-8 col-sm-4 ">
       <% if room.deleted == false %>
-        <%= link_to room.name,relative_root+room.uid %>
+        <%= link_to room.name,relative_root+"/"+room.uid %>
       <% else %>
         <%= room.name %>
       <% end %>
@@ -57,7 +57,7 @@
 
     <div class="col-sm-2 col-3">
       <% if room.sessions > 0 %>
-        <a href="#" onclick="openRoomRecordingModal(event,'<%= room.uid %>')" >View Recordings</a>
+        <a href="#" data-toggle="modal" data-target="#listRoomRecordingModal-<%= room.uid %>" >View Recordings</a>
       <% else %>
         <i><%= "No Recordings" %></i>
       <% end %>
@@ -71,11 +71,11 @@
             <i class="fas fa-ellipsis-v px-4"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-menu-md-left">
-            <a href="<%= relative_root + room.uid %>" class="delete-room dropdown-item">
+            <a href="<%= relative_root + '/' + room.uid %>" class="delete-room dropdown-item">
               <i class="dropdown-icon fas fa-cog"></i> Join Meeting
             </a>
             <% unless room == current_user.main_room %>
-              <!-- <a href="" data-toggle="modal" data-target="#deleteRoomModal" data-path="<%= room_path(room) %>" data-name="<%= room.name %>" class="delete-room dropdown-item">
+              <!-- <a href="" data-toggle="modal" data-target="#deleteRoomModal" data-path="<%= room_path(room) %>" data-name="<%#= room.name %>" class="delete-room dropdown-item">
                 <i class="dropdown-icon far fa-trash-alt"></i> Close Meeting
               </a> -->
               <a class="delete-room dropdown-item" onclick="closemeeting(event,'<%= room.uid %>')" ><i class="dropdown-icon far fa-trash-alt"></i> Close Meeting</a>
@@ -86,4 +86,3 @@
     </div>
   </div>
 </div>
-

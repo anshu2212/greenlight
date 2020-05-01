@@ -15,8 +15,6 @@
 
 <div class="sessions pb-5">
   <div class="container pt-6">
-
-    <%= render "shared/components/subtitle", subtitle: (only_public ? t("recording.visibility.public") + " " : "") + title, search: true %>
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -32,11 +30,6 @@
                       ↑
                     <% end %>
                   </th>
-                  <% if recording_thumbnails? %>
-                    <th>
-                      <%= t("recording.table.thumbnails") %>
-                    </th>
-                  <% end %>
                   <th class="text-left" data-header="length" data-order="<%= @order_column == "length" ? @order_direction : "none" %>">
                     <%= t("recording.table.length") %>
                     <% if @order_column == "length" && @order_direction == "desc" %>
@@ -45,24 +38,8 @@
                       ↑
                     <% end %>
                   </th>
-                  <th class="text-left" data-header="users" data-order="<%= @order_column == "users" ? @order_direction : "none" %>">
-                    <%= t("recording.table.users") %>
-                    <% if @order_column == "users" && @order_direction == "desc" %>
-                      ↓
-                    <% elsif @order_column == "users" && @order_direction == "asc" %>
-                      ↑
-                    <% end %>
-                  </th>
-                  <th class="text-left" data-header="visibility" data-order="<%= @order_column == "visibility" ? @order_direction : "none" %>">
-                    <%= t("recording.table.visibility") %>
-                    <% if @order_column == "visibility" && @order_direction == "desc" %>
-                      ↓
-                    <% elsif @order_column == "visibility" && @order_direction == "asc" %>
-                      ↑
-                    <% end %>
-                  </th>
                   <th data-header="formats" data-order="<%= @order_column == "formats" ? @order_direction : "none" %>">
-                    <%= t("recording.table.formats") %>
+                    Action
                     <% if @order_column == "formats" && @order_direction == "desc" %>
                       ↓
                     <% elsif @order_column == "formats" && @order_direction == "asc" %>
@@ -70,7 +47,7 @@
                     <% end %>
                   </th>
                   <% unless only_public %>
-                    <th class="text-center"><i class="icon-settings"></i></th>
+                    <th class="text-center d-none"><i class="icon-settings"></i></th>
                   <% end %>
                 </tr>
               </thead>

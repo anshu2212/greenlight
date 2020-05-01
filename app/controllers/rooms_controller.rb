@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
     return redirect_to root_path unless current_user
 
     # Check if the user has not exceeded the room limit
-    return redirect_to ENV["RELATIVE_URL_ROOT"]+"u/home", flash: { alert: I18n.t("room.meeting_limit") } if room_limit_exceeded
+    return redirect_to relative_root + "/u/home", flash: { alert: I18n.t("room.meeting_limit") } if room_limit_exceeded
 
     # Create room
     @room = Room.new(name: room_params[:name], access_code: room_params[:access_code])
@@ -48,7 +48,7 @@ class RoomsController < ApplicationController
     @room.room_settings = create_room_settings_string(room_params)
 
     # Save the room and redirect if it fails
-    return redirect_to ENV["RELATIVE_URL_ROOT"]+"u/home", flash: { alert: I18n.t("room.create_meeting_error") } unless @room.save
+    return redirect_to relative_root + "/u/home", flash: { alert: I18n.t("room.create_meeting_error") } unless @room.save
 
     logger.info "Support: #{current_user.email} has created a new Meeting #{@room.uid}."
 

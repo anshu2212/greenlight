@@ -171,25 +171,34 @@ class UsersController < ApplicationController
   end
 
   # GET /u/:user_uid/recordings
-  def recordings
-    if current_user && current_user.uid == params[:user_uid]
-      @search, @order_column, @order_direction, recs =
-        all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
-      @pagy, @recordings = pagy_array(recs)
-    else
-      redirect_to root_path
-    end
-  end
+  # def recordings
+  #   if current_user && current_user.uid == params[:user_uid]
+  #     @search, @order_column, @order_direction, recs =
+  #       all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
+  #     @pagy, @recordings = pagy_array(recs)
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
 
   # GET /u/home
   def home
     #return redirect_to root_path unless current_user
     # If its the current user
     #if current_user 
-    @search, @order_column, @order_direction, recs =
-        all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
-    @pagy, @recordings = pagy_array(recs)
     @all_rooms = current_user.ordered_rooms()
+    @recordingsList = []
+    @all_rooms.each do | room | 
+      #room.recordings = []
+      @search, @order_column, @order_direction, recs = recordings( room.bbb_id, params.permit(:search, :column, :direction), true)
+      @pagy, @recordings = pagy_array(recs)
+      @recordingsList = @recordingsList + [@recordings]
+      
+      #@search, @order_column, @order_direction, recs = recordings(room.bbb_id, params.permit(:search, :column, :direction), true)
+    #  @pagy, @recordings = pagy_array(recs)
+    #  room.pagy = @pagy
+    #  room.recordings = @recordings
+    end
     render :user_home
     #else
     #  return redirect_to root_path, flash: { alert: I18n.t("room.invalid_provider") } if incorrect_user_domain
