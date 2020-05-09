@@ -47,7 +47,7 @@ module Authenticator
       url = if cookies[:return_to] && !dont_redirect_to.include?(cookies[:return_to])
         cookies[:return_to]
       else
-        root_url + relative_root + '/u/home'
+        relative_root + '/u/home'
       end
 
       # Delete the cookie if it exists
