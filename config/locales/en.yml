@@ -486,7 +486,7 @@ en:
       home_room: Can't delete user's Home Room
       success: Meeting deleted successfully
       fail: Failed to delete meeting (%{error})
-    enter_the_access_code: Enter the meeting's password
+    enter_the_password: Enter the password
     invalid_provider: You have entered an invalid url. Please check the url and try again.
     invited: You have been invited to join
     invite_participants: Invite Participants
