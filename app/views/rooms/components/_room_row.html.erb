@@ -78,7 +78,7 @@
               <!-- <a href="" data-toggle="modal" data-target="#deleteRoomModal" data-path="<%= room_path(room) %>" data-name="<%#= room.name %>" class="delete-room dropdown-item">
                 <i class="dropdown-icon far fa-trash-alt"></i> Close Meeting
               </a> -->
-              <a class="delete-room dropdown-item" onclick="closemeeting(event,'<%= room.uid %>')" ><i class="dropdown-icon far fa-trash-alt"></i> Close Meeting</a>
+              <a class="delete-room dropdown-item" onclick="closemeeting(event,'<%= relative_root + '/' + room.uid %>')" ><i class="dropdown-icon far fa-trash-alt"></i> Close Meeting</a>
             <% end %>
           </div>
         </div>

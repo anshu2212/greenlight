@@ -334,7 +334,7 @@ function openJoinPage(e){
 function closemeeting(e,roomid){
   e && e.preventDefault();
   jQuery.ajax({
-    url: "/"+roomid,
+    url: roomid,
     type: 'DELETE',
     success:function(data){
       console.log(data);
