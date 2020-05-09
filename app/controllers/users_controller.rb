@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   include Rolify
 
 
-  before_action :find_user, only: [:edit, :change_password, :delete_account, :update]
+  before_action :find_user, only: [:edit, :change_password, :delete_account, :update, :home]
   before_action :ensure_unauthenticated_except_twitter, only: [:create]
   before_action :check_user_signup_allowed, only: [:create]
   before_action :check_admin_of, only: [:edit, :change_password, :delete_account]
@@ -183,7 +183,7 @@ class UsersController < ApplicationController
 
   # GET /u/home
   def home
-    #return redirect_to root_path unless current_user
+    return redirect_to root_path unless current_user
     # If its the current user
     #if current_user 
     @all_rooms = current_user.ordered_rooms()
