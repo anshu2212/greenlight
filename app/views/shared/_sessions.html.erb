@@ -54,40 +54,9 @@
               <tbody id="recording-table">
                 <tr id="no_recordings_found" style="display: none;">
                   <td colspan="7" class="text-center h4 p-6 font-weight-normal" >
-                    
+                    Z
                   </td>
                 </tr>
-                <% if recordings.empty? %>
-                  <tr>
-                    <td colspan="7" class="text-center h4 p-6 font-weight-normal">
-                      <% if user_recordings %>
-                        <%= t("recording.no_user_recordings") %>
-                      <% else %>
-                        <%= t("recording.no_recordings", inject: only_public ? t("recording.visibility.public").downcase + " "  : "") %>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% else %>
-                  <% failed_recordings = 0 %>
-                  <% recordings.each do |recording| %>
-                    <% begin %>
-                      <% if only_public || (defined?(shared_room) && shared_room) %>
-                        <%= render "shared/components/public_recording_row", recording: recording %>
-                      <% else %>
-                        <%= render "shared/components/recording_row", recording: recording %>
-                      <% end %>
-                    <% rescue => e %>
-                      <% logger.error "Error retrieving recording #{recording[:meetingID]}: #{e} -> #{e.backtrace[0]}" %>
-                      <% failed_recordings += 1 %>
-                    <% end %>
-                  <% end %>
-
-                  <% if failed_recordings > 0 %>
-                    <div class="alert alert-danger alert-dismissible text-center mb-0">
-                      <%= t("recording.error", count: failed_recordings) %>
-                    </div>
-                  <% end %>
-                <% end %>
               </tbody>
             </table>
             <% if !recordings.empty?%>
