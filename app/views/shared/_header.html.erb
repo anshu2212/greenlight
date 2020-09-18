@@ -18,7 +18,7 @@
     <div class="d-flex">
       <%= link_to (current_user ? relative_root + "/u/home" : root_path), class: "header-brand" do %>
         <% begin %>
-          <%= image_tag "logo.png" , :class => "logo-image header-brand-img" , :style => "" %>
+          <%= image_tag "logo.png" , :class => "logo-image header-brand-img d-none" , :style => "" %>
 
         <% rescue %>
           <%= t("administrator.site_settings.branding.invalid") %>
